@@ -1,0 +1,13 @@
+name = "twilight-paper-d190"
+main = "_worker.js"
+compatibility_date = "2026-11-20"
+
+# 定时清理：每小时删掉过期的邮箱（KV TTL 是主力清理，这里是兜底）
+[triggers]
+crons = ["0 * * * *"]
+
+# KV 绑定：把下面的 id 换成你的 MAILBOXES 的真实 namespace ID
+# 在 Cloudflare 控制台 → Workers & Pages → KV → 点 MAILBOXES 就能看到
+[[kv_namespaces]]
+binding = "MAILBOXES"
+id = "你的_KV_Namespace_ID"
