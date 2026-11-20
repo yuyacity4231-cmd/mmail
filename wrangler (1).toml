@@ -1,0 +1,12 @@
+name = "twilight-paper-d190"
+main = "_worker.js"
+compatibility_date = "2026-11-20"
+
+# 定时清理：每小时删掉过期的邮箱（KV TTL 是主力清理，这里是兜底）
+[triggers]
+crons = ["0 * * * *"]
+
+# KV 绑定：MAILBOXES → msms 命名空间
+[[kv_namespaces]]
+binding = "MAILBOXES"
+id = "88cfaf48fb0a4921af8ef5c9d1f60ad2"
